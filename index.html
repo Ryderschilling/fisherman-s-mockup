@@ -878,17 +878,6 @@ function qAuto(){qTimer=setInterval(()=>showQ((qi+1)%quotes.length),6000)}
 dots.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(qTimer);showQ(i);qAuto()}));
 qAuto();
 
-/* ---------- magnetic buttons ---------- */
-if(matchMedia('(pointer:fine)').matches){
-  document.querySelectorAll('.magnetic').forEach(b=>{
-    b.addEventListener('mousemove',e=>{
-      const r=b.getBoundingClientRect();
-      b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)';
-    });
-    b.addEventListener('mouseleave',()=>{b.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';b.style.transform='';setTimeout(()=>b.style.transition='',500)});
-  });
-}
-
 /* ---------- animated hero wave ---------- */
 const wavePath=document.getElementById('heroWavePath');
 let wt=0;
